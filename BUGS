@@ -1,0 +1,50 @@
+Blocking bugs
+=============
+
+Server connections and socket status
+Currently, the server tops out at 10 connections and can't figure out when a connection dies. The code to recycle dead connections is in place, but connection status doesn't return correct values. Fixing this bug may entail requiring the client to send a kill message to the server before it quits (although this cannot be relied on). At any rate, more research must be done into the behavior of sockets to determine when a socket dies.
+
+
+Username checking
+The server should not allow multiple connections to have the same username. Also, usernames should be limited to a certain acceptable length and possibly should only be allowed to use certain character (such as numbers, letters, and limited punctuation) (for Owen's sake).
+
+
+Message list scrolling **RESOLVED**
+This is arguably the most annoying bug of the current version. The message box does not scroll when new messages are added to the queue. Fixing this bug will require investigation into JScrollPanes and (possibly) JTextAreas.
+
+
+Non-blocking bugs
+=================
+
+Message lengths
+Corey's testing revealed that messages can be absurdly long, even spanning multiple lines. Some restraints should be placed on this. Perhaps a multi-line send box could be implemented. In my initial coding, however, I found that the JTextArea cannot have an action listener in the same way as the current JTextField, which is an issue that must be considered.
+
+
+Encryption
+It may be desirable to encrypt the messages as they travel over the network. Corey's working on an encryption plugin. All we need to do is use the Encryptor interface and the implementation can do whatever it needs to. Speed may become an issue, so performance should be kept in consideration.
+
+
+Unexplicable server logs -- Dead connections **RESOLVED**
+This has been fixed. Both client and server now know when their connections die. Notification has been added when a user leaves the chat or (on the client) when the server has died.
+
+The threaded server sometimes spits out line after line of exceptions when there is no input on the stream. I cannot reproduce this error nor do I know what happens. UPDATE: This seems to be occurring when one side or the other of the connection dies. I'm working on it.
+
+
+Feature requests
+================
+
+Launcher
+A nice launcher window that asks for IP address/hostname, port number, and username would be awesome.
+
+
+Text coloring/formatting
+This could be color-coding messages from the various clients to improve readability and allowing for formatting, such as bold and underline.
+
+
+Clear scrollback
+Gaim has a feature like this that allows you to clear the message log on your client. Shouldn't be too hard to implement.
+
+
+User list
+Display a list of the users currently logged in to the chat room, as well as notifications when someone leaves the chat.
+
