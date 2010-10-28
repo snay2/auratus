@@ -1,18 +1,13 @@
-Auratus is a very simple peer-to-peer chat client, written in Java, that I and 
-a few friends wrote back in 2007. It's not very useful of itself, as there are
-many better implementations out there. This was just a proof-of-concept and a
-learning experience for me.
+Auratus is a very simple peer-to-peer chat client, written in Java, that I and a few friends wrote back in 2007. It's not very useful of itself, as there are many better implementations out there. This was just a proof-of-concept and a learning experience for me.
 
 The basic structure is such:
-- A server instance--run the ThreadedServer class--must be run on a computer
-    with an IP address accessible to all clients. It will operate on port 3421
+- A server instance--run the ThreadedServer class--must be run on a computer with an IP address accessible to all clients. It will operate on port 3421
 - Up to 10 client instances--run the Client class with the following options:
     - IP address of the server
     - Port number on the server (3421 by default)
     - Username for identification to all other clients
 
-The bug database and planned features at the time we stopped development is
-in the BUGS file.
+The bug database and planned features at the time we stopped development is in the BUGS file.
 
 Feel free to use it, play around with it, or whatever you want.
 
