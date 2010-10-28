@@ -1,0 +1,3 @@
+These are older version of the Client and Server classes, before we implemented
+multithreading on the server. May or may not be useful.
+
