@@ -1,6 +1,10 @@
 Blocking bugs
 =============
 
+Ant build script
+For automating and cleaning up the build process. (There's nothing in place right now)
+
+
 Server connections and socket status
 Currently, the server tops out at 10 connections and can't figure out when a connection dies. The code to recycle dead connections is in place, but connection status doesn't return correct values. Fixing this bug may entail requiring the client to send a kill message to the server before it quits (although this cannot be relied on). At any rate, more research must be done into the behavior of sockets to determine when a socket dies.
 
